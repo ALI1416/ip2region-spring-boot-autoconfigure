@@ -1,0 +1,61 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>ip2region-spring-boot-autoconfigure</artifactId>
+  <version>1.0.0</version>
+
+  <parent>
+    <groupId>cn.404z</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.1.0</version>
+  </parent>
+
+  <name>${project.artifactId}</name>
+  <description>IP Address To Region Springboot Autoconfigure IP地址转区域自动配置</description>
+  <url>https://github.com/ALI1416/ip2region-spring-boot-autoconfigure</url>
+
+  <scm>
+    <url>git@github.com:ALI1416/ip2region-spring-boot-autoconfigure.git</url>
+    <connection>scm:${project.scm.url}</connection>
+    <developerConnection>scm:${project.scm.url}</developerConnection>
+  </scm>
+
+  <dependencies>
+    <!-- 必须依赖 -->
+    <dependency>
+      <groupId>cn.404z</groupId>
+      <artifactId>ip2region</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    <!-- 额外依赖 -->
+    <dependency>
+      <groupId>org.lionsoul</groupId>
+      <artifactId>ip2region</artifactId>
+      <version>1.7.2</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+      <version>2.5.4</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-autoconfigure-processor</artifactId>
+      <version>2.5.4</version>
+      <optional>true</optional>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <version>2.5.4</version>
+      <optional>true</optional>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+</project>
