@@ -3,20 +3,20 @@
 ## 项目地址
 [Github源码](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure)
 [Gitee源码](https://gitee.com/ALI1416/ip2region-spring-boot-autoconfigure)
-[![Build Status](https://travis-ci.com/ALI1416/ip2region-spring-boot-autoconfigure.svg?branch=master)](https://travis-ci.com/ALI1416/ip2region-spring-boot-autoconfigure)
+[![Build Status](https://travis-ci.com/ALI1416/ip2region-spring-boot-autoconfigure.svg?branch=master)](https://app.travis-ci.com/ALI1416/ip2region-spring-boot-autoconfigure)
 
 [Github测试](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure-test)
 [Gitee测试](https://gitee.com/ALI1416/ip2region-spring-boot-autoconfigure-test)
-[![Build Status](https://travis-ci.com/ALI1416/ip2region-spring-boot-autoconfigure-test.svg?branch=master)](https://travis-ci.com/ALI1416/ip2region-spring-boot-autoconfigure-test)
+[![Build Status](https://travis-ci.com/ALI1416/ip2region-spring-boot-autoconfigure-test.svg?branch=master)](https://app.travis-ci.com/ALI1416/ip2region-spring-boot-autoconfigure-test)
 
 ### IP地址转区域项目地址
 [Github源码](https://github.com/ALI1416/ip2region)
 [Gitee源码](https://gitee.com/ALI1416/ip2region)
-[![Build Status](https://travis-ci.com/ALI1416/ip2region.svg?branch=master)](https://travis-ci.com/ALI1416/ip2region)
+[![Build Status](https://travis-ci.com/ALI1416/ip2region.svg?branch=master)](https://app.travis-ci.com/ALI1416/ip2region)
 
 [Github测试](https://github.com/ALI1416/ip2region-test)
 [Gitee测试](https://gitee.com/ALI1416/ip2region-test)
-[![Build Status](https://travis-ci.com/ALI1416/ip2region-test.svg?branch=master)](https://travis-ci.com/ALI1416/ip2region-test)
+[![Build Status](https://travis-ci.com/ALI1416/ip2region-test.svg?branch=master)](https://app.travis-ci.com/ALI1416/ip2region-test)
 
 ## 简介
 本项目使用了SpringBoot的自动配置，只需要在配置文件中写入初始化参数即可，不用写死在代码中。
@@ -36,11 +36,11 @@ maven
     <artifactId>ip2region-spring-boot-autoconfigure</artifactId>
     <version>1.0.0</version>
 </dependency>
-    <dependency>
-      <groupId>org.lionsoul</groupId>
-      <artifactId>ip2region</artifactId>
-      <version>1.7.2</version>
-    </dependency>
+<dependency>
+    <groupId>org.lionsoul</groupId>
+    <artifactId>ip2region</artifactId>
+    <version>1.7.2</version>
+</dependency>
 <!-- 额外依赖(运行未报错，不需要加) -->
 <dependency>
     <groupId>org.springframework.boot</groupId>
