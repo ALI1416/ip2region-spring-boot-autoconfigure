@@ -23,10 +23,10 @@
 
 ## 依赖导入
 最新版本
-[![Maven central](https://maven-badges.herokuapp.com/maven-central/cn.404z/ip2region-spring-boot-autoconfigure/badge.svg)](https://maven-badges.herokuapp.com/maven-central/cn.404z/ip2region-spring-boot-autoconfigure)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/cn.404z/ip2region-spring-boot-autoconfigure/badge.svg)](https://maven-badges.herokuapp.com/maven-central/cn.404z/ip2region-spring-boot-autoconfigure)
 
 `org.lionsoul:ip2region`最新版本
-[![Maven central](https://maven-badges.herokuapp.com/maven-central/org.lionsoul/ip2region/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.lionsoul/ip2region)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.lionsoul/ip2region/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.lionsoul/ip2region)
 
 maven
 ```xml
@@ -34,7 +34,7 @@ maven
 <dependency>
     <groupId>cn.404z</groupId>
     <artifactId>ip2region-spring-boot-autoconfigure</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 <dependency>
     <groupId>org.lionsoul</groupId>
@@ -45,17 +45,17 @@ maven
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter</artifactId>
-    <version>2.5.4</version>
+    <version>2.6.6</version>
 </dependency>
 ```
 
 gradle
 ```groovy
 // 必须依赖
-implementation 'cn.404z:ip2region-spring-boot-autoconfigure:1.0.0'
+implementation 'cn.404z:ip2region-spring-boot-autoconfigure:1.1.0'
 implementation 'org.lionsoul:ip2region:1.7.2'
 // 额外依赖(运行未报错，不需要加)
-implementation 'org.springframework.boot:spring-boot-starter:2.5.4'
+implementation 'org.springframework.boot:spring-boot-starter:2.6.6'
 ```
 
 ## 使用方法
