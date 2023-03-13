@@ -32,10 +32,7 @@ public class Ip2RegionProperties {
     /**
      * URL路径(优先级2)<br>
      * 读取URL路径<br>
-     * 可以使用以下地址(请不要直接使用gitee链接,下载文件大于1MB需要登录才能下载;也不要使用github链接,经常不能访问)<br>
-     * https://cdn.jsdelivr.net/gh/lionsoul2014/ip2region/data/ip2region.db<br>
-     * 实际路径为<br>
-     * https://gitee.com/lionsoul/ip2region/blob/master/data/ip2region.db
+     * 可以用：https://cdn.jsdelivr.net/gh/ali1416/ip2region-test/data/ip2region.zxdb
      */
     private String urlPath;
 

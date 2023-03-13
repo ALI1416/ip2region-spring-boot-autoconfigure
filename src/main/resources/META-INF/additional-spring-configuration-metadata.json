@@ -15,7 +15,7 @@
     {
       "name": "ip2region.url-path",
       "type": "java.lang.String",
-      "description": "URL路径(优先级2),读取URL路径.可以使用以下地址(请不要直接使用gitee链接,下载文件大于1MB需要登录才能下载;也不要使用github链接,经常不能访问),https://cdn.jsdelivr.net/gh/lionsoul2014/ip2region/data/ip2region.db,实际路径为,https://gitee.com/lionsoul/ip2region/blob/master/data/ip2region.db.",
+      "description": "URL路径(优先级2),读取URL路径.可以用：https://cdn.jsdelivr.net/gh/ali1416/ip2region-test/data/ip2region.zxdb.",
       "sourceType": "cn.z.ip2region.autoconfigure.Ip2RegionProperties"
     }
   ]

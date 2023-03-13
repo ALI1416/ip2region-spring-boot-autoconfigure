@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
 import javax.annotation.PostConstruct;
-import java.io.IOException;
 
 /**
  * <h1>IP地址转区域自动配置</h1>
@@ -27,7 +26,7 @@ public class Ip2RegionAutoConfiguration {
     /**
      * 日志实例
      */
-    private final static Logger log = LoggerFactory.getLogger(Ip2RegionAutoConfiguration.class);
+    private static final Logger log = LoggerFactory.getLogger(Ip2RegionAutoConfiguration.class);
     /**
      * Ip2RegionProperties
      */
@@ -48,17 +47,17 @@ public class Ip2RegionAutoConfiguration {
     @PostConstruct
     public void init() {
         if (ip2RegionProperties.getResourcePath() != null) {
-            log.info("读取到配置文件，RESOURCE_PATH为" + ip2RegionProperties.getResourcePath());
+            log.info("读取到配置文件，RESOURCE_PATH为：" + ip2RegionProperties.getResourcePath());
             try {
-                Ip2Region.init(Ip2Region.inputStream2bytes(new ClassPathResource(ip2RegionProperties.getResourcePath()).getInputStream()));
-            } catch (IOException e) {
-                log.error("数据文件读取异常", e);
+                Ip2Region.init(new ClassPathResource(ip2RegionProperties.getResourcePath()).getInputStream());
+            } catch (Exception e) {
+                log.error("文件读取异常！", e);
             }
         } else if (ip2RegionProperties.getLocalPath() != null) {
-            log.info("读取到配置文件，LOCAL_PATH为" + ip2RegionProperties.getLocalPath());
+            log.info("读取到配置文件，LOCAL_PATH为：" + ip2RegionProperties.getLocalPath());
             Ip2Region.initByFile(ip2RegionProperties.getLocalPath());
         } else if (ip2RegionProperties.getUrlPath() != null) {
-            log.info("读取到配置文件，URL_PATH为" + ip2RegionProperties.getUrlPath());
+            log.info("读取到配置文件，URL_PATH为：" + ip2RegionProperties.getUrlPath());
             Ip2Region.initByUrl(ip2RegionProperties.getUrlPath());
         }
     }
