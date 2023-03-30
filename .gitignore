@@ -3,6 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+/src/test/resources/file/ip2region
 
 ### STS ###
 .apt_generated

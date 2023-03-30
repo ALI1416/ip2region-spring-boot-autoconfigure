@@ -47,17 +47,17 @@ public class Ip2RegionAutoConfiguration {
     @PostConstruct
     public void init() {
         if (ip2RegionProperties.getResourcePath() != null) {
-            log.info("读取到配置文件，RESOURCE_PATH为：" + ip2RegionProperties.getResourcePath());
+            log.info("读取到配置，RESOURCE_PATH为：{}", ip2RegionProperties.getResourcePath());
             try {
                 Ip2Region.init(new ClassPathResource(ip2RegionProperties.getResourcePath()).getInputStream());
             } catch (Exception e) {
-                log.error("文件读取异常！", e);
+                log.error("资源文件异常！", e);
             }
         } else if (ip2RegionProperties.getLocalPath() != null) {
-            log.info("读取到配置文件，LOCAL_PATH为：" + ip2RegionProperties.getLocalPath());
+            log.info("读取到配置，LOCAL_PATH为：{}", ip2RegionProperties.getLocalPath());
             Ip2Region.initByFile(ip2RegionProperties.getLocalPath());
         } else if (ip2RegionProperties.getUrlPath() != null) {
-            log.info("读取到配置文件，URL_PATH为：" + ip2RegionProperties.getUrlPath());
+            log.info("读取到配置，URL_PATH为：{}", ip2RegionProperties.getUrlPath());
             Ip2Region.initByUrl(ip2RegionProperties.getUrlPath());
         }
     }

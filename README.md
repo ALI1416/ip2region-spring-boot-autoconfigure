@@ -1,47 +1,29 @@
-# IP Address To Region Springboot Autoconfigure IP地址转区域自动配置
+# IP Address To Region Springboot Autoconfigure IP地址转区域SpringBoot自动配置
 
-## 项目地址
-[Github源码](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure)
-[Gitee源码](https://gitee.com/ALI1416/ip2region-spring-boot-autoconfigure)
-[![Build Status](https://travis-ci.com/ALI1416/ip2region-spring-boot-autoconfigure.svg?branch=master)](https://app.travis-ci.com/ALI1416/ip2region-spring-boot-autoconfigure)
+[![License](https://img.shields.io/github/license/ali1416/ip2region-spring-boot-autoconfigure?label=License)](https://opensource.org/licenses/BSD-3-Clause)
+[![Java Support](https://img.shields.io/badge/Java-8+-green)](https://openjdk.org/)
+[![Maven Central](https://img.shields.io/maven-central/v/cn.404z/ip2region-spring-boot-autoconfigure?label=Maven%20Central)](https://mvnrepository.com/artifact/cn.404z/ip2region-spring-boot-autoconfigure)
+[![Tag](https://img.shields.io/github/v/tag/ali1416/ip2region-spring-boot-autoconfigure?label=Tag)](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure/tags)
+[![Repo Size](https://img.shields.io/github/repo-size/ali1416/ip2region-spring-boot-autoconfigure?label=Repo%20Size&color=success)](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure/archive/refs/heads/master.zdb)
 
-[Github测试](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure-test)
-[Gitee测试](https://gitee.com/ALI1416/ip2region-spring-boot-autoconfigure-test)
-[![Build Status](https://travis-ci.com/ALI1416/ip2region-spring-boot-autoconfigure-test.svg?branch=master)](https://app.travis-ci.com/ALI1416/ip2region-spring-boot-autoconfigure-test)
-
-### IP地址转区域项目地址
-[Github源码](https://github.com/ALI1416/ip2region)
-[Gitee源码](https://gitee.com/ALI1416/ip2region)
-[![Build Status](https://travis-ci.com/ALI1416/ip2region.svg?branch=master)](https://app.travis-ci.com/ALI1416/ip2region)
-
-[Github测试](https://github.com/ALI1416/ip2region-test)
-[Gitee测试](https://gitee.com/ALI1416/ip2region-test)
-[![Build Status](https://travis-ci.com/ALI1416/ip2region-test.svg?branch=master)](https://app.travis-ci.com/ALI1416/ip2region-test)
+[![Java CI](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure/actions/workflows/ci.yml/badge.svg)](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure/actions/workflows/ci.yml)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ALI1416_ip2region-spring-boot-autoconfigure&metric=coverage)
+![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=ALI1416_ip2region-spring-boot-autoconfigure&metric=reliability_rating)
+![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ALI1416_ip2region-spring-boot-autoconfigure&metric=sqale_rating)
+![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=ALI1416_ip2region-spring-boot-autoconfigure&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=ALI1416_ip2region-spring-boot-autoconfigure)
 
 ## 简介
-本项目使用了SpringBoot的自动配置，只需要在配置文件中写入初始化参数即可，不用写死在代码中。
+
+本项目是[IP地址转区域](https://github.com/ALI1416/ip2region)的SpringBoot自动配置
 
 ## 依赖导入
-最新版本
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/cn.404z/ip2region-spring-boot-autoconfigure/badge.svg)](https://maven-badges.herokuapp.com/maven-central/cn.404z/ip2region-spring-boot-autoconfigure)
 
-`org.lionsoul:ip2region`最新版本
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.lionsoul/ip2region/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.lionsoul/ip2region)
-
-maven
 ```xml
-<!-- 必须依赖 -->
 <dependency>
   <groupId>cn.404z</groupId>
   <artifactId>ip2region-spring-boot-autoconfigure</artifactId>
-  <version>2.0.0</version>
+  <version>3.0.0</version>
 </dependency>
-<dependency>
-<groupId>org.lionsoul</groupId>
-<artifactId>ip2region</artifactId>
-<version>2.7.0</version>
-</dependency>
-    <!-- 额外依赖(运行未报错，不需要加) -->
 <dependency>
 <groupId>org.springframework.boot</groupId>
 <artifactId>spring-boot-starter</artifactId>
@@ -50,156 +32,197 @@ maven
 ```
 
 ## 使用方法
+
+常量
+
+```java
+final String zdbPath = "E:/ip2region.zdb";
+final String ip = "123.132.0.0";
+```
+
 ### 使用资源路径
+
 配置文件
+
 ```yml
 ip2region:
-  resource-path: /file/ip2region/ip2region.zxdb
+  resource-path: /file/ip2region/ip2region.zdb
 ```
 
 代码
+
 ```java
-System.out.print(Ip2Region.parse("202.108.22.5"));
+log.info(String.valueOf(Ip2Region.parse(ip)));
+log.info("是否已经初始化：{}", Ip2Region.initialized());
 ```
 
 结果
+
 ```txt
-INFO 2428 --- [           main] c.z.i.a.Ip2RegionAutoConfiguration       : 读取到配置文件，RESOURCE_PATH为：/file/ip2region/ip2region.zxdb
-INFO 2428 --- [           main] cn.z.ip2region.Ip2Region                 : 加载数据成功！
-INFO 2428 --- [           main] com.demo.App                             : Started App in 0.455 seconds (JVM running for 0.697)
-Region{country='中国', province='北京', city='北京市', isp='联通'}
+[main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region.zdb
+[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207
+[main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
+[main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
+[main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : 是否已经初始化：true
 ```
 
 ### 使用本地路径
+
 配置文件
+
 ```yml
 ip2region:
-  local-path: E:/ip2region.zip
+  local-path: E:/ip2region.zdb
 ```
 
 代码
+
 ```java
-System.out.print(Ip2Region.parse("202.108.22.5"));
+log.info(String.valueOf(Ip2Region.parse(ip)));
 ```
 
 结果
+
 ```txt
-INFO 2428 --- [           main] c.z.i.a.Ip2RegionAutoConfiguration       : 读取到配置文件，LOCAL_PATH为：E:/ip2region.zip
-INFO 2428 --- [           main] cn.z.ip2region.Ip2Region                 : 初始化，文件路径为：E:/ip2region.zip
-INFO 2428 --- [           main] cn.z.ip2region.Ip2Region                 : 加载数据成功！
-INFO 2428 --- [           main] com.demo.App                             : Started App in 0.455 seconds (JVM running for 0.697)
-Region{country='中国', province='北京', city='北京市', isp='联通'}
+[main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，LOCAL_PATH为：E:/ip2region.zdb
+[main] INFO cn.z.ip2region.Ip2Region               : 初始化，文件路径为：E:/ip2region.zdb
+[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207
+[main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
+[main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
 ```
 
 ### 使用url路径
+
 配置文件
+
 ```yml
 ip2region:
-  url-path: https://cdn.jsdelivr.net/gh/ali1416/ip2region-test/data/ip2region.zxdb
+  url-path: https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb
 ```
 
 代码
+
 ```java
-System.out.print(Ip2Region.parse("202.108.22.5"));
+log.info(String.valueOf(Ip2Region.parse(ip)));
 ```
 
 结果
+
 ```txt
-INFO 2428 --- [           main] c.z.i.a.Ip2RegionAutoConfiguration       : 读取到配置文件，URL_PATH为：https://cdn.jsdelivr.net/gh/ali1416/ip2region-test/data/ip2region.zxdb
-INFO 2428 --- [           main] cn.z.ip2region.Ip2Region                 : 初始化，URL路径为：https://cdn.jsdelivr.net/gh/ali1416/ip2region-test/data/ip2region.zxdb
-INFO 2428 --- [           main] cn.z.ip2region.Ip2Region                 : 加载数据成功！
-INFO 2428 --- [           main] com.demo.App                             : Started App in 0.455 seconds (JVM running for 0.697)
-Region{country='中国', province='北京', city='北京市', isp='联通'}
+[main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，URL_PATH为：https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb
+[main] INFO cn.z.ip2region.Ip2Region               : 初始化，URL路径为：https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb
+[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207
+[main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
+[main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
 ```
 
 ### 优先级
+
 配置文件
+
 ```yml
 ip2region:
-  resource-path: /file/ip2region/ip2region.zxdb
-  local-path: E:/ip2region.zip
-  url-path: https://cdn.jsdelivr.net/gh/ali1416/ip2region-test/data/ip2region.zxdb
+  resource-path: /file/ip2region/ip2region.zdb
+  local-path: E:/ip2region.zdb
+  url-path: https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb
 ```
 
 代码
+
 ```java
-System.out.print(Ip2Region.parse("202.108.22.5"));
+log.info(String.valueOf(Ip2Region.parse(ip)));
 ```
 
 结果
+
 ```txt
-INFO 2428 --- [           main] c.z.i.a.Ip2RegionAutoConfiguration       : 读取到配置文件，RESOURCE_PATH为：/file/ip2region/ip2region.zxdb
-INFO 2428 --- [           main] cn.z.ip2region.Ip2Region                 : 加载数据成功！
-INFO 2428 --- [           main] com.demo.App                             : Started App in 0.455 seconds (JVM running for 0.697)
-Region{country='中国', province='北京', city='北京市', isp='联通'}
+[main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region.zdb
+[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207
+[main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
+[main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
 ```
 
 ### 没有配置
-不需要配置文件  
+
+配置文件
+
+```yml
+# 不需要配置
+```
+
 代码
+
 ```java
-System.out.print(Ip2Region.parse("202.108.22.5"));
+log.info(String.valueOf(Ip2Region.parse(ip)));
 ```
 
 结果
 ```txt
- INFO 2428 --- [           main] com.demo.App                             : Started App in 0.455 seconds (JVM running for 0.697)
-ERROR 2428 --- [           main] cn.z.ip2region.Ip2Region                 : 未初始化！
-null
+[main]  INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
+[main] ERROR cn.z.ip2region.Ip2Region               : 未初始化！
+[main]  INFO c.z.i.a.Ip2RegionAutoConfigurationTest : null
 ```
 
 ### 配置错误
+
 配置文件
+
 ```yml
 ip2region:
   resource-path: /file/ip2region/ip2region
 ```
 
 代码
+
 ```java
-System.out.print(Ip2Region.parse("202.108.22.5"));
+log.info(String.valueOf(Ip2Region.parse(ip)));
 ```
 
 结果
+
 ```txt
- INFO 2428 --- [           main] c.z.i.a.Ip2RegionAutoConfiguration       : 读取到配置文件，RESOURCE_PATH为：/file/ip2region/ip2region
- INFO 2428 --- [           main] c.z.i.a.Ip2RegionAutoConfiguration       : 文件读取异常！
+[main]  INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region
+[main] ERROR cn.z.ip2region.Ip2Region               : 资源文件异常！
 java.io.FileNotFoundException: class path resource [file/ip2region/ip2region] cannot be opened because it does not exist
- INFO 2428 --- [           main] com.demo.App                             : Started App in 0.455 seconds (JVM running for 0.697)
-ERROR 2428 --- [           main] cn.z.ip2region.Ip2Region                 : 未初始化！
-null
+[main]  INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
+[main] ERROR cn.z.ip2region.Ip2Region               : 未初始化！
+[main]  INFO c.z.i.a.Ip2RegionAutoConfigurationTest : null
 ```
 
 ### 配置属性后又手动初始化
+
 配置文件
+
 ```yml
 ip2region:
-  resource-path: /file/ip2region/ip2region.zxdb
+  resource-path: /file/ip2region/ip2region.zdb
 ```
 
 代码
+
 ```java
-Ip2Region.initByFile("E:/ip2region.zip");
-System.out.print(Ip2Region.parse("202.108.22.5"));
+Ip2Region.initByFile(zdbPath);
+log.info(String.valueOf(Ip2Region.parse(ip)));
 ```
 
 结果
+
 ```txt
-INFO 2428 --- [           main] c.z.i.a.Ip2RegionAutoConfiguration       : 读取到配置文件，RESOURCE_PATH为：/file/ip2region/ip2region.zxdb
-INFO 2428 --- [           main] cn.z.ip2region.Ip2Region                 : 加载数据成功！
-INFO 2428 --- [           main] com.demo.App                             : Started App in 0.455 seconds (JVM running for 0.697)
-WARN 2428 --- [           main] cn.z.ip2region.Ip2Region                 : 已经初始化过了，不可重复初始化！
-Region{country='中国', province='北京', city='北京市', isp='联通'}
+[main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region.zdb
+[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207
+[main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
+[main] WARN cn.z.ip2region.Ip2Region               : 已经初始化过了，不可重复初始化！
+[main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
 ```
 
-## 许可证
-[![License](https://img.shields.io/badge/license-BSD-brightgreen)](https://opensource.org/licenses/BSD-3-Clause)
-
 ## 交流
-QQ：1416978277  
-微信：1416978277  
-支付宝：1416978277@qq.com  
+
+- [x] QQ：`1416978277`
+- [x] 微信：`1416978277`
+- [x] 支付宝：`1416978277@qq.com`
+
 ![交流](https://cdn.jsdelivr.net/gh/ALI1416/ALI1416/image/contact.png)
 
 ## 赞助
+
 ![赞助](https://cdn.jsdelivr.net/gh/ALI1416/ALI1416/image/donate.png)
