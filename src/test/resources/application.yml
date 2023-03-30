@@ -7,8 +7,8 @@
 #  local-path: E:/ip2region.zdb
 
 # url 使用url路径
-#ip2region:
-#  url-path: https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb
+ip2region:
+  url-path: https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb
 
 # priority 优先级
 #ip2region:
@@ -24,5 +24,5 @@
 #  resource-path: /file/ip2region/ip2region
 
 # init 配置属性后又手动初始化
-ip2region:
-  resource-path: /file/ip2region/ip2region.zdb
+#ip2region:
+#  resource-path: /file/ip2region/ip2region.zdb
