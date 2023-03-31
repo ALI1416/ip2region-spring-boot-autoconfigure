@@ -37,7 +37,7 @@ class Ip2RegionAutoConfigurationTest {
         // [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     :
         // 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region.zdb
         // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 数据加载成功，版本号为：20221207
+        // 数据加载成功，版本号为：20221207，校验码为：68EDD841
         // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
         // Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
         // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
@@ -57,7 +57,7 @@ class Ip2RegionAutoConfigurationTest {
         // [main] INFO cn.z.ip2region.Ip2Region               :
         // 初始化，文件路径为：E:/ip2region.zdb
         // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 数据加载成功，版本号为：20221207
+        // 数据加载成功，版本号为：20221207，校验码为：68EDD841
         // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
         // Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
         // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
@@ -71,11 +71,11 @@ class Ip2RegionAutoConfigurationTest {
     void test02Url() {
         log.info(String.valueOf(Ip2Region.parse(ip)));
         // [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     :
-        // 读取到配置，URL_PATH为：https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb
+        // 读取到配置，URL_PATH为：https://cdn.jsdelivr.net/gh/ali1416/ip2region@3.0.0/data/ip2region.zdb
         // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 初始化，URL路径为：https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb
+        // 初始化，URL路径为：https://cdn.jsdelivr.net/gh/ali1416/ip2region@3.0.0/data/ip2region.zdb
         // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 数据加载成功，版本号为：20221207
+        // 数据加载成功，版本号为：20221207，校验码为：68EDD841
         // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
         // Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
         // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
@@ -91,7 +91,7 @@ class Ip2RegionAutoConfigurationTest {
         // [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     :
         // 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region.zdb
         // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 数据加载成功，版本号为：20221207
+        // 数据加载成功，版本号为：20221207，校验码为：68EDD841
         // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
         // Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
         // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
@@ -124,12 +124,8 @@ class Ip2RegionAutoConfigurationTest {
         // 资源文件异常！
         // java.io.FileNotFoundException: class path resource [file/ip2region/ip2region]
         // cannot be opened because it does not exist
-        // [main]  INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
-        // [main] ERROR cn.z.ip2region.Ip2Region               :
-        // 未初始化！
-        // [main]  INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // null
+        // [main] ERROR o.s.boot.SpringApplication             :
+        // Application run failed
     }
 
     /**
@@ -142,7 +138,7 @@ class Ip2RegionAutoConfigurationTest {
         // [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     :
         // 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region.zdb
         // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 数据加载成功，版本号为：20221207
+        // 数据加载成功，版本号为：20221207，校验码为：68EDD841
         // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
         // Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
         // [main] WARN cn.z.ip2region.Ip2Region               :

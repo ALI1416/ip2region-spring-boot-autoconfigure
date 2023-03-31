@@ -22,7 +22,7 @@
 <dependency>
   <groupId>cn.404z</groupId>
   <artifactId>ip2region-spring-boot-autoconfigure</artifactId>
-  <version>3.0.0</version>
+  <version>3.0.1</version>
 </dependency>
 <dependency>
 <groupId>org.springframework.boot</groupId>
@@ -60,7 +60,7 @@ log.info("是否已经初始化：{}", Ip2Region.initialized());
 
 ```txt
 [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region.zdb
-[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207
+[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207，校验码为：68EDD841
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : 是否已经初始化：true
@@ -86,7 +86,7 @@ log.info(String.valueOf(Ip2Region.parse(ip)));
 ```txt
 [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，LOCAL_PATH为：E:/ip2region.zdb
 [main] INFO cn.z.ip2region.Ip2Region               : 初始化，文件路径为：E:/ip2region.zdb
-[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207
+[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207，校验码为：68EDD841
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
 ```
@@ -97,7 +97,7 @@ log.info(String.valueOf(Ip2Region.parse(ip)));
 
 ```yml
 ip2region:
-  url-path: https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb
+  url-path: https://cdn.jsdelivr.net/gh/ali1416/ip2region@3.0.0/data/ip2region.zdb
 ```
 
 代码
@@ -109,9 +109,9 @@ log.info(String.valueOf(Ip2Region.parse(ip)));
 结果
 
 ```txt
-[main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，URL_PATH为：https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb
-[main] INFO cn.z.ip2region.Ip2Region               : 初始化，URL路径为：https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb
-[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207
+[main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，URL_PATH为：https://cdn.jsdelivr.net/gh/ali1416/ip2region@3.0.0/data/ip2region.zdb
+[main] INFO cn.z.ip2region.Ip2Region               : 初始化，URL路径为：https://cdn.jsdelivr.net/gh/ali1416/ip2region@3.0.0/data/ip2region.zdb
+[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207，校验码为：68EDD841
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
 ```
@@ -124,7 +124,7 @@ log.info(String.valueOf(Ip2Region.parse(ip)));
 ip2region:
   resource-path: /file/ip2region/ip2region.zdb
   local-path: E:/ip2region.zdb
-  url-path: https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb
+  url-path: https://cdn.jsdelivr.net/gh/ali1416/ip2region@3.0.0/data/ip2region.zdb
 ```
 
 代码
@@ -137,7 +137,7 @@ log.info(String.valueOf(Ip2Region.parse(ip)));
 
 ```txt
 [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region.zdb
-[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207
+[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207，校验码为：68EDD841
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
 ```
@@ -184,9 +184,7 @@ log.info(String.valueOf(Ip2Region.parse(ip)));
 [main]  INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region
 [main] ERROR cn.z.ip2region.Ip2Region               : 资源文件异常！
 java.io.FileNotFoundException: class path resource [file/ip2region/ip2region] cannot be opened because it does not exist
-[main]  INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
-[main] ERROR cn.z.ip2region.Ip2Region               : 未初始化！
-[main]  INFO c.z.i.a.Ip2RegionAutoConfigurationTest : null
+[main] ERROR o.s.boot.SpringApplication             : Application run failed
 ```
 
 ### 配置属性后又手动初始化
@@ -209,7 +207,7 @@ log.info(String.valueOf(Ip2Region.parse(ip)));
 
 ```txt
 [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region.zdb
-[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207
+[main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207，校验码为：68EDD841
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
 [main] WARN cn.z.ip2region.Ip2Region               : 已经初始化过了，不可重复初始化！
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Region{country='中国', province='山东省', city='济宁市', isp='联通'}

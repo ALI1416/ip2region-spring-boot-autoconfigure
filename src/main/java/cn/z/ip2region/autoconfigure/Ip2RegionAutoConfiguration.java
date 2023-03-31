@@ -1,6 +1,7 @@
 package cn.z.ip2region.autoconfigure;
 
 import cn.z.ip2region.Ip2Region;
+import cn.z.ip2region.Ip2RegionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
 import javax.annotation.PostConstruct;
+import java.io.InputStream;
 
 /**
  * <h1>IP地址转区域自动配置</h1>
@@ -48,11 +50,14 @@ public class Ip2RegionAutoConfiguration {
     public void init() {
         if (ip2RegionProperties.getResourcePath() != null) {
             log.info("读取到配置，RESOURCE_PATH为：{}", ip2RegionProperties.getResourcePath());
+            InputStream inputStream;
             try {
-                Ip2Region.init(new ClassPathResource(ip2RegionProperties.getResourcePath()).getInputStream());
+                inputStream = new ClassPathResource(ip2RegionProperties.getResourcePath()).getInputStream();
             } catch (Exception e) {
                 log.error("资源文件异常！", e);
+                throw new Ip2RegionException("资源文件异常！");
             }
+            Ip2Region.init(inputStream);
         } else if (ip2RegionProperties.getLocalPath() != null) {
             log.info("读取到配置，LOCAL_PATH为：{}", ip2RegionProperties.getLocalPath());
             Ip2Region.initByFile(ip2RegionProperties.getLocalPath());

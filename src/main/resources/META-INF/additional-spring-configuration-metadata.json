@@ -15,7 +15,7 @@
     {
       "name": "ip2region.url-path",
       "type": "java.lang.String",
-      "description": "URL路径(优先级2),读取URL路径.可以用：https://cdn.jsdelivr.net/gh/ali1416/ip2region@master/data/ip2region.zdb.",
+      "description": "URL路径(优先级2),读取URL路径.例如：https://cdn.jsdelivr.net/gh/ali1416/ip2region@3.0.0/data/ip2region.zdb.",
       "sourceType": "cn.z.ip2region.autoconfigure.Ip2RegionProperties"
     }
   ]
