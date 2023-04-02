@@ -157,6 +157,7 @@ log.info(String.valueOf(Ip2Region.parse(ip)));
 ```
 
 结果
+
 ```txt
 [main]  INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
 [main] ERROR cn.z.ip2region.Ip2Region               : 未初始化！
