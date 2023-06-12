@@ -32,7 +32,7 @@ public class Ip2RegionProperties {
     /**
      * URL路径(优先级2)<br>
      * 读取URL路径<br>
-     * 例如：<code>https://cdn.jsdelivr.net/gh/ali1416/ip2region@3.0.0/data/ip2region.zdb</code>
+     * 例如：<code>https://www.404z.cn/files/ip2region/v3.0.0/data/ip2region.zdb</code>
      */
     private String urlPath;
 

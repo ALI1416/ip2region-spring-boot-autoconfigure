@@ -1,10 +1,10 @@
 # IP Address To Region Springboot Autoconfigure IP地址转区域SpringBoot自动配置
 
-[![License](https://img.shields.io/github/license/ali1416/ip2region-spring-boot-autoconfigure?label=License)](https://opensource.org/licenses/BSD-3-Clause)
+[![License](https://img.shields.io/github/license/ALI1416/ip2region-spring-boot-autoconfigure?label=License)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 [![Java Support](https://img.shields.io/badge/Java-8+-green)](https://openjdk.org/)
 [![Maven Central](https://img.shields.io/maven-central/v/cn.404z/ip2region-spring-boot-autoconfigure?label=Maven%20Central)](https://mvnrepository.com/artifact/cn.404z/ip2region-spring-boot-autoconfigure)
-[![Tag](https://img.shields.io/github/v/tag/ali1416/ip2region-spring-boot-autoconfigure?label=Tag)](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure/tags)
-[![Repo Size](https://img.shields.io/github/repo-size/ali1416/ip2region-spring-boot-autoconfigure?label=Repo%20Size&color=success)](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure/archive/refs/heads/master.zdb)
+[![Tag](https://img.shields.io/github/v/tag/ALI1416/ip2region-spring-boot-autoconfigure?label=Tag)](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure/tags)
+[![Repo Size](https://img.shields.io/github/repo-size/ALI1416/ip2region-spring-boot-autoconfigure?label=Repo%20Size&color=success)](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure/archive/refs/heads/master.zdb)
 
 [![Java CI](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure/actions/workflows/ci.yml/badge.svg)](https://github.com/ALI1416/ip2region-spring-boot-autoconfigure/actions/workflows/ci.yml)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ALI1416_ip2region-spring-boot-autoconfigure&metric=coverage)
@@ -16,18 +16,22 @@
 
 本项目是[IP地址转区域](https://github.com/ALI1416/ip2region)的SpringBoot自动配置
 
+## 数据文件
+
+- 数据文件目录：[点击查看](https://github.com/ALI1416/ip2region/tree/master/data)
+
 ## 依赖导入
 
 ```xml
 <dependency>
   <groupId>cn.404z</groupId>
   <artifactId>ip2region-spring-boot-autoconfigure</artifactId>
-  <version>3.0.1</version>
+  <version>3.1.0</version>
 </dependency>
 <dependency>
-<groupId>org.springframework.boot</groupId>
-<artifactId>spring-boot-starter</artifactId>
-<version>2.7.9</version>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter</artifactId>
+  <version>2.7.12</version>
 </dependency>
 ```
 
@@ -97,7 +101,7 @@ log.info(String.valueOf(Ip2Region.parse(ip)));
 
 ```yml
 ip2region:
-  url-path: https://cdn.jsdelivr.net/gh/ali1416/ip2region@3.0.0/data/ip2region.zdb
+  url-path: https://www.404z.cn/files/ip2region/v3.0.0/data/ip2region.zdb
 ```
 
 代码
@@ -109,8 +113,8 @@ log.info(String.valueOf(Ip2Region.parse(ip)));
 结果
 
 ```txt
-[main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，URL_PATH为：https://cdn.jsdelivr.net/gh/ali1416/ip2region@3.0.0/data/ip2region.zdb
-[main] INFO cn.z.ip2region.Ip2Region               : 初始化，URL路径为：https://cdn.jsdelivr.net/gh/ali1416/ip2region@3.0.0/data/ip2region.zdb
+[main] INFO c.z.i.a.Ip2RegionAutoConfiguration     : 读取到配置，URL_PATH为：https://www.404z.cn/files/ip2region/v3.0.0/data/ip2region.zdb
+[main] INFO cn.z.ip2region.Ip2Region               : 初始化，URL路径为：https://www.404z.cn/files/ip2region/v3.0.0/data/ip2region.zdb
 [main] INFO cn.z.ip2region.Ip2Region               : 数据加载成功，版本号为：20221207，校验码为：68EDD841
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
@@ -124,7 +128,7 @@ log.info(String.valueOf(Ip2Region.parse(ip)));
 ip2region:
   resource-path: /file/ip2region/ip2region.zdb
   local-path: E:/ip2region.zdb
-  url-path: https://cdn.jsdelivr.net/gh/ali1416/ip2region@3.0.0/data/ip2region.zdb
+  url-path: https://www.404z.cn/files/ip2region/v3.0.0/data/ip2region.zdb
 ```
 
 代码
@@ -214,14 +218,17 @@ log.info(String.valueOf(Ip2Region.parse(ip)));
 [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
 ```
 
-## 交流
+更多请见[测试](./src/test)
 
-- [x] QQ：`1416978277`
-- [x] 微信：`1416978277`
-- [x] 支付宝：`1416978277@qq.com`
+## 更新日志
 
-![交流](https://cdn.jsdelivr.net/gh/ALI1416/ALI1416/image/contact.png)
+[点击查看](./CHANGELOG.md)
 
-## 赞助
+## 关于
 
-![赞助](https://cdn.jsdelivr.net/gh/ALI1416/ALI1416/image/donate.png)
+<object data="https://404z.cn/images/about.svg" style="max-width:100%;">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://404z.cn/images/about.dark.svg">
+    <img alt="About" src="https://404z.cn/images/about.light.svg">
+  </picture>
+</object>
