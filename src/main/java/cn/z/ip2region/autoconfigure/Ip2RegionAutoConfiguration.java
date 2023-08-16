@@ -49,7 +49,7 @@ public class Ip2RegionAutoConfiguration {
     @PostConstruct
     public void init() {
         if (ip2RegionProperties.getResourcePath() != null) {
-            log.info("读取到配置，RESOURCE_PATH为：{}", ip2RegionProperties.getResourcePath());
+            log.info("IP地址转区域配置：资源路径RESOURCE_PATH {}", ip2RegionProperties.getResourcePath());
             InputStream inputStream;
             try {
                 inputStream = new ClassPathResource(ip2RegionProperties.getResourcePath()).getInputStream();
@@ -59,10 +59,10 @@ public class Ip2RegionAutoConfiguration {
             }
             Ip2Region.init(inputStream);
         } else if (ip2RegionProperties.getLocalPath() != null) {
-            log.info("读取到配置，LOCAL_PATH为：{}", ip2RegionProperties.getLocalPath());
+            log.info("IP地址转区域配置：本地路径LOCAL_PATH {}", ip2RegionProperties.getLocalPath());
             Ip2Region.initByFile(ip2RegionProperties.getLocalPath());
         } else if (ip2RegionProperties.getUrlPath() != null) {
-            log.info("读取到配置，URL_PATH为：{}", ip2RegionProperties.getUrlPath());
+            log.info("IP地址转区域配置：URL路径URL_PATH {}", ip2RegionProperties.getUrlPath());
             Ip2Region.initByUrl(ip2RegionProperties.getUrlPath());
         }
     }
