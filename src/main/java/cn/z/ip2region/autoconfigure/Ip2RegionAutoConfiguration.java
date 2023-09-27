@@ -5,10 +5,8 @@ import cn.z.ip2region.Ip2RegionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
-import javax.annotation.PostConstruct;
 import java.io.InputStream;
 
 /**
@@ -21,7 +19,6 @@ import java.io.InputStream;
  * @author ALI[ali-k@foxmail.com]
  * @since 1.0.0
  **/
-@Configuration
 @EnableConfigurationProperties(Ip2RegionProperties.class)
 public class Ip2RegionAutoConfiguration {
 
@@ -29,10 +26,6 @@ public class Ip2RegionAutoConfiguration {
      * 日志实例
      */
     private static final Logger log = LoggerFactory.getLogger(Ip2RegionAutoConfiguration.class);
-    /**
-     * Ip2RegionProperties
-     */
-    private final Ip2RegionProperties ip2RegionProperties;
 
     /**
      * 构造函数(自动注入)
@@ -40,14 +33,6 @@ public class Ip2RegionAutoConfiguration {
      * @param ip2RegionProperties Ip2RegionProperties
      */
     public Ip2RegionAutoConfiguration(Ip2RegionProperties ip2RegionProperties) {
-        this.ip2RegionProperties = ip2RegionProperties;
-    }
-
-    /**
-     * 初始化
-     */
-    @PostConstruct
-    public void init() {
         if (ip2RegionProperties.getResourcePath() != null) {
             log.info("IP地址转区域配置：资源路径RESOURCE_PATH {}", ip2RegionProperties.getResourcePath());
             InputStream inputStream;

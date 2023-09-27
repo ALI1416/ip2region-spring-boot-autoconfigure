@@ -32,18 +32,14 @@ class Ip2RegionAutoConfigurationTest {
      */
     // @Test
     void test00Resource() {
+        // ip2region:
+        //   resource-path: /file/ip2region/ip2region.zdb
         log.info(String.valueOf(Ip2Region.parse(ip)));
         log.info("是否已经初始化：{}", Ip2Region.initialized());
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     :
-        // 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region.zdb
-        // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 数据加载成功，版本号为：20221207，校验码为：68EDD841
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // Region{country='中国', province='山东省', city='济宁市', isp='联通'}
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // 是否已经初始化：true
+        // INFO cn.z.ip2region.Ip2Region                 : 数据加载成功：版本号VERSION 20221207 ，校验码CRC32 68EDD841
+        // INFO c.z.i.a.Ip2RegionAutoConfigurationTest   : Started Ip2RegionAutoConfigurationTest in 0.955 seconds (JVM running for 1.859)
+        // INFO c.z.i.a.Ip2RegionAutoConfigurationTest   : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
+        // INFO c.z.i.a.Ip2RegionAutoConfigurationTest   : 是否已经初始化：true
     }
 
     /**
@@ -51,17 +47,14 @@ class Ip2RegionAutoConfigurationTest {
      */
     // @Test
     void test01Local() {
+        // ip2region:
+        //   local-path: E:/ip2region.zdb
         log.info(String.valueOf(Ip2Region.parse(ip)));
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     :
-        // 读取到配置，LOCAL_PATH为：E:/ip2region.zdb
-        // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 初始化，文件路径为：E:/ip2region.zdb
-        // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 数据加载成功，版本号为：20221207，校验码为：68EDD841
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // Region{country='中国', province='山东省', city='济宁市', isp='联通'}
+        // INFO c.z.i.a.Ip2RegionAutoConfiguration       : IP地址转区域配置：本地路径LOCAL_PATH E:/ip2region.zdb
+        // INFO cn.z.ip2region.Ip2Region                 : IP地址转区域初始化：文件路径LOCAL_PATH E:/ip2region.zdb
+        // INFO cn.z.ip2region.Ip2Region                 : 数据加载成功：版本号VERSION 20221207 ，校验码CRC32 68EDD841
+        // INFO c.z.i.a.Ip2RegionAutoConfigurationTest   : Started Ip2RegionAutoConfigurationTest in 0.955 seconds (JVM running for 1.859)
+        // INFO c.z.i.a.Ip2RegionAutoConfigurationTest   : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
     }
 
     /**
@@ -69,17 +62,14 @@ class Ip2RegionAutoConfigurationTest {
      */
     @Test
     void test02Url() {
+        // ip2region:
+        //   url-path: https://www.404z.cn/files/ip2region/v3.0.0/data/ip2region.zdb
         log.info(String.valueOf(Ip2Region.parse(ip)));
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     :
-        // 读取到配置，URL_PATH为：https://www.404z.cn/files/ip2region/v3.0.0/data/ip2region.zdb
-        // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 初始化，URL路径为：https://www.404z.cn/files/ip2region/v3.0.0/data/ip2region.zdb
-        // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 数据加载成功，版本号为：20221207，校验码为：68EDD841
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // Region{country='中国', province='山东省', city='济宁市', isp='联通'}
+        // INFO c.z.i.a.Ip2RegionAutoConfiguration       : IP地址转区域配置：URL路径URL_PATH https://www.404z.cn/files/ip2region/v3.0.0/data/ip2region.zdb
+        // INFO cn.z.ip2region.Ip2Region                 : IP地址转区域初始化：URL路径URL_PATH https://www.404z.cn/files/ip2region/v3.0.0/data/ip2region.zdb
+        // INFO cn.z.ip2region.Ip2Region                 : 数据加载成功：版本号VERSION 20221207 ，校验码CRC32 68EDD841
+        // INFO c.z.i.a.Ip2RegionAutoConfigurationTest   : Started Ip2RegionAutoConfigurationTest in 0.955 seconds (JVM running for 1.859)
+        // INFO c.z.i.a.Ip2RegionAutoConfigurationTest   : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
     }
 
     /**
@@ -87,15 +77,14 @@ class Ip2RegionAutoConfigurationTest {
      */
     // @Test
     void test03Priority() {
+        // ip2region:
+        //   resource-path: /file/ip2region/ip2region.zdb
+        //   local-path: E:/ip2region.zdb
+        //   url-path: https://www.404z.cn/files/ip2region/v3.0.0/data/ip2region.zdb
         log.info(String.valueOf(Ip2Region.parse(ip)));
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     :
-        // 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region.zdb
-        // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 数据加载成功，版本号为：20221207，校验码为：68EDD841
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // Region{country='中国', province='山东省', city='济宁市', isp='联通'}
+        // INFO cn.z.ip2region.Ip2Region                 : 数据加载成功：版本号VERSION 20221207 ，校验码CRC32 68EDD841
+        // INFO c.z.i.a.Ip2RegionAutoConfigurationTest   : Started Ip2RegionAutoConfigurationTest in 0.955 seconds (JVM running for 1.859)
+        // INFO c.z.i.a.Ip2RegionAutoConfigurationTest   : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
     }
 
     /**
@@ -103,13 +92,10 @@ class Ip2RegionAutoConfigurationTest {
      */
     // @Test
     void test04None() {
+        // # 不需要配置
         log.info(String.valueOf(Ip2Region.parse(ip)));
-        // [main]  INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
-        // [main] ERROR cn.z.ip2region.Ip2Region               :
-        // 未初始化！
-        // [main]  INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // null
+        // INFO c.z.i.a.Ip2RegionAutoConfigurationTest   : Started Ip2RegionAutoConfigurationTest in 0.955 seconds (JVM running for 1.859)
+        // cn.z.ip2region.Ip2RegionException: 未初始化！
     }
 
     /**
@@ -117,15 +103,12 @@ class Ip2RegionAutoConfigurationTest {
      */
     // @Test
     void test05Error() {
+        // ip2region:
+        //   resource-path: /file/ip2region/ip2region
         log.info(String.valueOf(Ip2Region.parse(ip)));
-        // [main]  INFO c.z.i.a.Ip2RegionAutoConfiguration     :
-        // 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region
-        // [main] ERROR cn.z.ip2region.Ip2Region               :
-        // 资源文件异常！
-        // java.io.FileNotFoundException: class path resource [file/ip2region/ip2region]
-        // cannot be opened because it does not exist
-        // [main] ERROR o.s.boot.SpringApplication             :
-        // Application run failed
+        //  INFO c.z.i.a.Ip2RegionAutoConfiguration       : IP地址转区域配置：资源路径RESOURCE_PATH /file/ip2region/ip2region
+        // ERROR c.z.i.a.Ip2RegionAutoConfiguration       : 资源文件异常！
+        // java.io.FileNotFoundException: class path resource [file/ip2region/ip2region] cannot be opened because it does not exist
     }
 
     /**
@@ -133,18 +116,14 @@ class Ip2RegionAutoConfigurationTest {
      */
     // @Test
     void test06Init() {
+        // ip2region:
+        //   resource-path: /file/ip2region/ip2region.zdb
         Ip2Region.initByFile(zdbPath);
         log.info(String.valueOf(Ip2Region.parse(ip)));
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfiguration     :
-        // 读取到配置，RESOURCE_PATH为：/file/ip2region/ip2region.zdb
-        // [main] INFO cn.z.ip2region.Ip2Region               :
-        // 数据加载成功，版本号为：20221207，校验码为：68EDD841
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // Started Ip2RegionAutoConfigurationTest in 0.442 seconds (JVM running for 0.931)
-        // [main] WARN cn.z.ip2region.Ip2Region               :
-        // 已经初始化过了，不可重复初始化！
-        // [main] INFO c.z.i.a.Ip2RegionAutoConfigurationTest :
-        // Region{country='中国', province='山东省', city='济宁市', isp='联通'}
+        // INFO cn.z.ip2region.Ip2Region                 : 数据加载成功：版本号VERSION 20221207 ，校验码CRC32 68EDD841
+        // INFO c.z.i.a.Ip2RegionAutoConfigurationTest   : Started Ip2RegionAutoConfigurationTest in 0.955 seconds (JVM running for 1.859)
+        // WARN cn.z.ip2region.Ip2Region                 : 已经初始化过了，不可重复初始化！
+        // INFO c.z.i.a.Ip2RegionAutoConfigurationTest   : Region{country='中国', province='山东省', city='济宁市', isp='联通'}
     }
 
 }

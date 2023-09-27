@@ -12,13 +12,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author ALI[ali-k@foxmail.com]
  * @since 1.0.0
  */
-@ConfigurationProperties(prefix = Ip2RegionProperties.IP2REGION_PREFIX)
+@ConfigurationProperties(prefix = "ip2region")
 public class Ip2RegionProperties {
 
-    /**
-     * 前缀{@value}
-     */
-    public static final String IP2REGION_PREFIX = "ip2region";
     /**
      * 资源路径(优先级0)<br>
      * 读取项目文件夹resources下的路径
