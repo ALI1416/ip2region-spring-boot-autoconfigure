@@ -26,7 +26,7 @@
 <dependency>
   <groupId>cn.404z</groupId>
   <artifactId>ip2region-spring-boot-autoconfigure</artifactId>
-  <version>3.1.2</version>
+  <version>3.2.0</version>
 </dependency>
 <dependency>
   <groupId>org.springframework.boot</groupId>
