@@ -26,12 +26,12 @@
 <dependency>
   <groupId>cn.404z</groupId>
   <artifactId>ip2region-spring-boot-autoconfigure</artifactId>
-  <version>3.2.1</version>
+  <version>3.3.0</version>
 </dependency>
 <dependency>
   <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-starter</artifactId>
-  <version>2.7.15</version>
+  <version>2.7.18</version>
 </dependency>
 ```
 

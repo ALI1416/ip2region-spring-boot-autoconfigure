@@ -55,4 +55,5 @@ public class Ip2RegionProperties {
     public void setUrlPath(String urlPath) {
         this.urlPath = urlPath;
     }
+
 }

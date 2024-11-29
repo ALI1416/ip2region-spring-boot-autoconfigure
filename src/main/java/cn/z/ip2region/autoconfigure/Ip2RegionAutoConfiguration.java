@@ -39,8 +39,7 @@ public class Ip2RegionAutoConfiguration {
             try {
                 inputStream = new ClassPathResource(ip2RegionProperties.getResourcePath()).getInputStream();
             } catch (Exception e) {
-                log.error("资源文件异常！", e);
-                throw new Ip2RegionException("资源文件异常！");
+                throw new Ip2RegionException("资源文件异常！", e);
             }
             Ip2Region.init(inputStream);
         } else if (ip2RegionProperties.getLocalPath() != null) {
