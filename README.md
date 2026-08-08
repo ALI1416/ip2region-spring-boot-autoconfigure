@@ -19,6 +19,8 @@
 ## 数据文件
 
 - 数据文件目录：[点击查看](https://github.com/ALI1416/ip2region/tree/master/data)
+- 最新版本：`v3.5.0`
+- 点击下载：[![ip2region.zdb](https://img.shields.io/github/size/ALI1416/ip2region/data/ip2region.zdb?label=ip2region.zdb&color=success&branch=v3.5.0)](https://www.404z.cn/files/ip2region/v3.5.0/data/ip2region.zdb)
 
 ## 依赖导入
 
